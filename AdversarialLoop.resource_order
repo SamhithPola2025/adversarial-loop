@@ -1,0 +1,21 @@
+{
+  "FolderOrderSettings":[
+    {"name":"Objects","order":2,"path":"folders/Objects.yy",},
+    {"name":"Sprites","order":1,"path":"folders/Sprites.yy",},
+    {"name":"Text","order":4,"path":"folders/Text.yy",},
+  ],
+  "ResourceOrderSettings":[
+    {"name":"oController","order":5,"path":"objects/oController/oController.yy",},
+    {"name":"oFallPlat","order":7,"path":"objects/oFallPlat/oFallPlat.yy",},
+    {"name":"oFlag","order":2,"path":"objects/oFlag/oFlag.yy",},
+    {"name":"oPlatform","order":3,"path":"objects/oPlatform/oPlatform.yy",},
+    {"name":"oSolid","order":4,"path":"objects/oSolid/oSolid.yy",},
+    {"name":"oSpike1","order":1,"path":"objects/oSpike1/oSpike1.yy",},
+    {"name":"oSpike2","order":6,"path":"objects/oSpike2/oSpike2.yy",},
+    {"name":"level2","order":5,"path":"rooms/level2/level2.yy",},
+    {"name":"sFlag","order":2,"path":"sprites/sFlag/sFlag.yy",},
+    {"name":"sPlatform","order":3,"path":"sprites/sPlatform/sPlatform.yy",},
+    {"name":"sPlayer","order":4,"path":"sprites/sPlayer/sPlayer.yy",},
+    {"name":"sSpike","order":5,"path":"sprites/sSpike/sSpike.yy",},
+  ],
+}

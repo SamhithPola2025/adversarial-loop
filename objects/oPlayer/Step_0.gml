@@ -1,10 +1,19 @@
+// input
 rightKey = keyboard_check(vk_right) || keyboard_check(ord("D"));
 leftKey  = keyboard_check(vk_left) || keyboard_check(ord("A"));
 jumpKeyPressed = keyboard_check_pressed(vk_up) || keyboard_check(ord("W"));
 
+// horizontal movement
 moveDir = rightKey - leftKey;
-xspd = moveDir * moveSpd;
 
+// use different speeds on ground vs in air
+if (place_meeting(x, y + 1, oPlatform)) { // on ground
+    xspd = moveDir * moveSpd;
+} else { // in air
+    xspd = moveDir * airMoveSpd; // set airMoveSpd in create event
+}
+
+// horizontal collision
 if (!place_meeting(x + xspd, y, oPlatform)) {
     x += xspd;
 } else {
@@ -14,6 +23,7 @@ if (!place_meeting(x + xspd, y, oPlatform)) {
     xspd = 0;
 }
 
+// vertical movement
 yspd += grav;
 
 if (jumpKeyPressed && jumps_left > 0) {
@@ -21,6 +31,7 @@ if (jumpKeyPressed && jumps_left > 0) {
     jumps_left--;
 }
 
+// vertical collision with subpixel adjustment
 var _subPixel = 0.5;
 if (place_meeting(x, y + yspd, oPlatform)) {
     var _pixelCheck = _subPixel * sign(yspd);
@@ -32,14 +43,24 @@ if (place_meeting(x, y + yspd, oPlatform)) {
 
 y += yspd;
 
+// reset jumps when touching the ground
 if (place_meeting(x, y + 1, oPlatform)) {
     jumps_left = max_jumps;
 }
 
+// room/level transitions
 if (place_meeting(x,y,oFlag)) {
-	room_goto(level2);
+    room_goto(level2);
 }
 
-if (place_meeting(x, y, oSpikes)) {
+// hazards
+if (place_meeting(x, y, oSpike1)) || (place_meeting(x,y,oSpike2)) {
     room_restart();
+}
+
+// check horizontal and vertical bounds
+if (x < 0 || x > room_width || y < 0 || y > room_height) {
+    // player is out of bounds, destroy or reset
+    // or you could reset position:
+	room_restart();
 }

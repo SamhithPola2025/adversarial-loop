@@ -8,3 +8,4 @@ termVel = 4;
 jspd = -7.5;
 max_jumps = 2;
 jumps_left = max_jumps;
+airMoveSpd = 3;
