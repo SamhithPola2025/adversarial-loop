@@ -50,17 +50,27 @@ if (place_meeting(x, y + 1, oPlatform)) {
 
 // room/level transitions
 if (place_meeting(x,y,oFlag)) {
-    room_goto(level2);
+	room_goto(level2);
+}
+
+if (place_meeting(x,y,oFlag2)) {
+	room_goto(level3);
+}
+
+
+if (place_meeting(x,y,oFlag3)) {
+	room_goto(level4);
+}
+
+if (place_meeting(x,y,oFlag4)) {
+	room_goto(level5);
 }
 
 // hazards
-if (place_meeting(x, y, oSpike1)) || (place_meeting(x,y,oSpike2)) {
+if (place_meeting(x, y, oSpike1)) || (place_meeting(x,y,oSpike2)) || (place_meeting(x,y,oNormalSpike)) {
     room_restart();
 }
 
-// check horizontal and vertical bounds
 if (x < 0 || x > room_width || y < 0 || y > room_height) {
-    // player is out of bounds, destroy or reset
-    // or you could reset position:
 	room_restart();
 }

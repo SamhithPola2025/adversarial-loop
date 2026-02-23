@@ -1,11 +1,9 @@
-// Step Event of the platform
+// define variables if they don't exist yet (optional but safe)
 if (!variable_instance_exists(id, "falling")) {
     falling = false;
     fall_speed = 0;
     fall_accel = 0.5;
 }
 
-if (falling) {
-    fall_speed += fall_accel;
-    y += fall_speed;
-}
+// start falling
+falling = true;
