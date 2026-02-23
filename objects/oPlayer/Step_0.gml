@@ -66,8 +66,13 @@ if (place_meeting(x,y,oFlag4)) {
 	room_goto(level5);
 }
 
+if (place_meeting(x,y,oFlag5)) {
+	room_goto(endScreen);
+}
+
+
 // hazards
-if (place_meeting(x, y, oSpike1)) || (place_meeting(x,y,oSpike2)) || (place_meeting(x,y,oNormalSpike)) {
+if (place_meeting(x, y, oSpike1)) || (place_meeting(x,y,oSpike2)) || (place_meeting(x,y,oNormalSpike) || (place_meeting(x,y,invisiblespike))) {
     room_restart();
 }
 
